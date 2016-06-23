@@ -4,10 +4,14 @@ export function configRouter(router) {
 			component: require('../containers/Home.vue')
 		},
 		'/about': {
-			component: require('../containers/About.vue')
+			component: function(resolve){
+        return require(['../containers/About.vue'], resolve);
+      }
 		},
 		'*': {
-			component: require('../containers/NotFound.vue')
+			component: function(resolve){
+        return require(['../containers/NotFound.vue'], resolve);
+      }
 		}
 		// '/sayDetail/:id': {
 		// 	component: require('../containers/sayDetail.vue')
