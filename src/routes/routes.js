@@ -1,9 +1,11 @@
 export function configRouter(router) {
 	router.map({
 		'/': {
+			name: 'home',
 			component: require('../containers/Home.vue')
 		},
 		'/about': {
+			about: 'about',
 			component: function(resolve){
         return require(['../containers/About.vue'], resolve);
       }
