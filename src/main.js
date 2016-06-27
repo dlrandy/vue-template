@@ -5,6 +5,7 @@ import VueRouter from 'vue-router';
 import { configRouter } from './routes/routes';
 
 Vue.config.debug = true;
+Vue.config.devtools = true;
 
 Vue.use(VueRouter);
 const router = new VueRouter({
