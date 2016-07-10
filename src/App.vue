@@ -1,62 +1,30 @@
 <template>
-<div>
-  <div id="app" class="container">
-    <input type="checkbox" id="drawer-toggle" name="drawer-toggle"/>
-    <label for="drawer-toggle" id="drawer-toggle-label"></label>
-    <header>
-      期货圈
-    </header>
-    <nav id="drawer">
-      <ul>
-        <li><a href="#">Menu Item</a></li>
-        <li><a href="#">Menu Item</a></li>
-        <li><a href="#">Menu Item</a></li>
-        <li><a href="#">Menu Item</a></li>
-      </ul>
-    </nav>
+  <div id="app" class="app">
+    <drawer :pageType="pageType"></drawer>
     <div id="page-content">
       <router-view></router-view>
     </div>
-
-
   </div>
-  <div class="app">
-    <img class="logo" src="./assets/logo.png">
-    <hello></hello>
-    <p>
-      Welcome to your Vue.js app!
-      <a href="/about">about</a>
-      <a href="/dfdf">notfound</a>
-    </p>
-    <p>
-
-    </p>
-  </div>
-</div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import drawer from './components/drawer';
 
 export default {
   computed: {
-
+    pageType: this.$route.pageType
   },
   methods: {
-    historyBack() {
-      history.back();
-      if (history.length < 0) {
-        //返回客户端
-      }
-    }
+
   },
   components: {
-    Hello
+    drawer
   }
+
 }
 </script>
 
-<style src="./assets/styles/app.css"></style>
+
 <style>
   * {
     box-sizing: border-box;
@@ -110,11 +78,12 @@ export default {
   }
   #drawer {
     position: fixed;
+    z-index: 1;
     top: 0;
     right: -300px;
     height: 100%;
     width: 300px;
-    background: #2f2f2f;
+    background: #fff;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 20px;
@@ -122,13 +91,13 @@ export default {
   }
   #page-content {
     margin-right: 0px;
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     width: 100%;
-    height: calc(100% - 50px);
+    height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    padding: 20px;
+    padding-top: 56px;
   }
   #drawer-toggle:checked ~ #drawer-toggle-label {
     height: 100%;
@@ -144,5 +113,14 @@ export default {
   }
   #drawer-toggle:checked ~ #page-content {
     margin-right: 300px;
+  }
+  .container{
+    position: absolute;
+    /*top: 2px;*/
+  }
+  .app{
+    background: red;
+    position: relative;
+    /*margin-top: 50px;*/
   }
 </style>
