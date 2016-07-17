@@ -18,6 +18,8 @@
 
 	}
 </script>
-<style lang="sass">
-
+<style lang="scss">
+.nav-list {
+  font-size: .38rem;
+ }
 </style>
