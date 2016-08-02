@@ -2,7 +2,7 @@
   <header  id="hd">
     <div class="nv-toolbar">
       <span class="back-nav" @click="historyBack">
-        <<<
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
       </span>
       <span v-text="pageTopic"></span>
       <i class="num" v-if="messageCount > 0"> {{messageCount}}</i>
@@ -11,12 +11,19 @@
     </div>
   </header>
 </template>
-<style>
+<style lang="scss">
 
+.nv-toolbar{
+  text-align: center;
+  .back-nav{
+    float: left;
+  }
+}
 </style>
 <script>
   import { getPageType } from '../vuex/getters';
   import store from '../vuex/store';
+  import "font-awesome/scss/font-awesome.scss";
     export default{
 
         data(){
